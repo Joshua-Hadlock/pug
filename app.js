@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
+app.use(express.urlencoded({extended: false}));
 
+const port = process.env.PORT || 3000;
 users = [
     {
     username: 'Bob the man',
@@ -41,6 +43,11 @@ app.get('/pug2', (req, res) => {
     res.render('giantPUG')
 })
 
-app.listen(3000, () => {
-    console.log('listening on port 3000')
+app.get('/users/:userName', (req, res) => {
+    res.end('You clicked on ' + req.params.userName)
+})
+
+
+app.listen(port, () => {
+    console.log('listening on port ' + port)
 })
