@@ -47,6 +47,18 @@ app.get('/users/:userName', (req, res) => {
     res.end('You clicked on ' + req.params.userName)
 })
 
+app.post('/createUser', (req, res) => {
+    const username = req.body.userName;
+    const email = req.body.email;
+    const age = req.body.age;
+    const user = {username: username,
+                    email: email,
+                    age: age}
+    users.push(user);
+    res.redirect('/');
+})
+
+
 
 app.listen(port, () => {
     console.log('listening on port ' + port)
