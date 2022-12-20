@@ -1,0 +1,12 @@
+html
+    include head.pug
+    body
+        h1 users:
+        div
+            each val in user
+                ul
+                    each item, key in val
+                        li #{key} - #{item}
+        h1 TIME
+        include time.pug
+        a(href="pug2") pug
