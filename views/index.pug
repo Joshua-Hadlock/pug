@@ -6,7 +6,8 @@ html
             each val in user
                 ul
                     each item, key in val
-                        li #{key} - #{item}
+                        li 
+                            a(href='/users/'+val.username) #{key} - #{item}
         h1 TIME
         include time.pug
         a(href="pug2") pug
